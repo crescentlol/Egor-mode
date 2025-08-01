@@ -1,147 +1,81 @@
 --OBFUSCATED FOR PRIVACY AND LEGAL REASONS.
 --IF YOU WANT THE ORIGINAL SOURCE CODE PLEASE REQUEST IT ON SCRIPTBLOX.COM
 
-local _0=loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\115\105\114\105\117\115\46\109\101\110\117\47\114\97\121\102\105\101\108\100"))()
-local _1=game:GetService("\80\108\97\121\101\114\115")
-local _2=game:GetService("\82\117\110\83\101\114\118\105\99\101")
-local _3=game:GetService("\85\115\101\114\73\110\112\117\116\83\101\114\118\105\99\101")
-local _4=_1.LocalPlayer
-local _5=false
-local _6="\114\98\120\97\115\115\101\116\105\100\58\47\47\57\49\51\51\55\54\50\50\48"
-local _7=nil
-local _8=nil
-local _9=false
-local _A=false
-local _B=false
-local _C=100
-
-local function _D(_E)
-	local _F=_E:FindFirstChildWhichIsA("\65\110\105\109\97\116\111\114") or Instance.new("\65\110\105\109\97\116\111\114",_E)
-	local _G=Instance.new("\65\110\105\109\97\116\105\111\110")
-	_G.AnimationId=_6
-	_7=_F:LoadAnimation(_G)
-	_7.Priority=Enum.AnimationPriority.Movement
-	_7:AdjustSpeed(6)
-	_7:Play()
-	_8=_2.RenderStepped:Connect(function()
-		if _E.MoveDirection.Magnitude==0 then if _7.IsPlaying then _7:Stop() end
-		else if not _7.IsPlaying then _7:Play() _7:AdjustSpeed(6) end end
-	end)
+local _a=loadstring(game:HttpGet('\x68\x74\x74\x70\x73\x3a\x2f\x2f\x73\x69\x72\x69\x75\x73\x2e\x6d\x65\x6e\x75\x2f\x72\x61\x79\x66\x69\x65\x6c\x64'))()
+local _b=game:GetService('\x50\x6c\x61\x79\x65\x72\x73')
+local _c=game:GetService('\x52\x75\x6e\x53\x65\x72\x76\x69\x63\x65')
+local _d=game:GetService('\x55\x73\x65\x72\x49\x6e\x70\x75\x74\x53\x65\x72\x76\x69\x63\x65')
+local _e=_b.LocalPlayer
+local _f=false
+local _g='\x72\x62\x78\x61\x73\x73\x65\x74\x69\x64\x3a\x2f\x2f\x39\x31\x33\x33\x37\x36\x32\x32\x30'
+local _h=nil
+local _i=nil
+local _j=false
+local _k=false
+local _l=false
+local _m=100
+local function _n(_o)
+ local _p=_o:FindFirstChildWhichIsA('\x41\x6e\x69\x6d\x61\x74\x6f\x72')or Instance.new('\x41\x6e\x69\x6d\x61\x74\x6f\x72',_o)
+ local _q=Instance.new('\x41\x6e\x69\x6d\x61\x74\x69\x6f\x6e')
+ _q.AnimationId=_g
+ _h=_p:LoadAnimation(_q)
+ _h.Priority=Enum.AnimationPriority.Movement
+ _h:AdjustSpeed(6)
+ _h:Play()
+ _i=_c.RenderStepped:Connect(function()
+  if _o.MoveDirection.Magnitude==0 then
+   if _h.IsPlaying then _h:Stop()end
+  else
+   if not _h.IsPlaying then _h:Play()_h:AdjustSpeed(6)end
+  end
+ end)
 end
-
-local function _H() if _7 then _7:Stop() end if _8 then _8:Disconnect() end end
-
-local function _I()
-	local _J=_4.Character
-	if not _J then return end
-	local _K=_J:FindFirstChild("\72\117\109\97\110\111\105\100")
-	if not _K then return end
-	_K.WalkSpeed=3
-	_D(_K)
-	local _L=_J:FindFirstChild("\65\110\105\109\97\116\101")
-	if _L and _L:FindFirstChild("run") then
-		_L.run.RunAnim.AnimationId="rbxassetid://0"
-	end
+local function _r()
+ if _h then _h:Stop()end
+ if _i then _i:Disconnect()end
 end
-
-local function _M()
-	local _N=_4.Character
-	if not _N then return end
-	local _O=_N:FindFirstChild("\72\117\109\97\110\111\105\100")
-	if not _O then return end
-	_O.WalkSpeed=16
-	_H()
-	local _P=_N:FindFirstChild("\65\110\105\109\97\116\101")
-	if _P and _P:FindFirstChild("run") then
-		_P.run.RunAnim.AnimationId="rbxassetid://913402848"
-	end
+local function _s()
+ local _t=_e.Character
+ if not _t then return end
+ local _u=_t:FindFirstChild('\x48\x75\x6d\x61\x6e\x6f\x69\x64')
+ if not _u then return end
+ _u.WalkSpeed=3
+ _n(_u)
 end
-
-local function _Q(_R)
-	_R:WaitForChild("\72\117\109\97\110\111\105\100")
-	_R:WaitForChild("\65\110\105\109\97\116\101")
-	task.wait(0.5)
-	if _5 then _I() else _M() end
+local function _v()
+ local _w=_e.Character
+ if not _w then return end
+ local _x=_w:FindFirstChild('\x48\x75\x6d\x61\x6e\x6f\x69\x64')
+ if not _x then return end
+ _x.WalkSpeed=16
+ _r()
 end
-
-if _4.Character then _Q(_4.Character) end
-_4.CharacterAdded:Connect(_Q)
-
-local _S=_0:CreateWindow({
-	Name="\69\103\111\114\x20\77\111\100\101\x20\45\x20\98\121\x20\72\120\115\103\111\108\100",
-	LoadingTitle="\69\103\111\114\x20\77\111\100\101\x20\83\99\114\105\112\116",
-	LoadingSubtitle="\77\97\100\101\x20\98\121\x20\72\120\115\103\111\108\100",
-	ConfigurationSaving={Enabled=true,FolderName="\69\103\111\114\67\111\110\102\105\103",FileName="\69\103\111\114\84\111\103\103\108\101"}
-})
-
-local _T=_S:CreateTab("\77\97\105\110",4483362458)
-_T:CreateSection("\67\111\110\116\114\111\108\115")
-_T:CreateToggle({
-	Name="\69\103\111\114\x20\77\111\100\101",
-	CurrentValue=false,
-	Flag="\69\103\111\114\84\111\103\103\108\101\70\108\97\103",
-	Callback=function(_U)
-		_5=_U
-		if _U then _I() else _M() end
-	end
-})
-
-local _V=_S:CreateTab("\77\111\118\101\109\101\110\116\32\38\32\70\108\105\110\103",4483362458)
-_V:CreateSection("\77\111\118\101\109\101\110\116\32\38\32\83\112\105\110\98\111\116")
-
-_V:CreateToggle({
-	Name="\83\112\105\110\66\111\116\x20\x28\x32\x4d\x20\115\x70\x65\x65\x64\x29",
-	CurrentValue=false,
-	Flag="\83\112\105\110\66\111\116\84\111\103\103\108\101",
-	Callback=function(v)
-		_G["spin_enabled"] = v
-		if not v then
-			local c = _4.Character
-			if c and c:FindFirstChild("\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116") then
-				c.HumanoidRootPart.CFrame = CFrame.new(c.HumanoidRootPart.Position)
-			end
-		end
-	end
-})
-
-_V:CreateToggle({
-	Name="\70\108\105\110\103\x20\x28\115\x65\112\x61\162\141\145\x65\x29",
-	CurrentValue=false,
-	Flag="\70\108\105\110\103\84\111\103\103\108\101",
-	Callback=function(v)
-		_G["fling_enabled"] = v
-	end
-})
-
-_G["spin_enabled"] = false
-_G["fling_enabled"] = false
-
-_2.RenderStepped:Connect(function(_W)
-	local _X=game:GetService("\80\108\97\121\101\114\115").LocalPlayer
-	local _Y=_X.Character
-	if not _Y then return end
-	local _Z=_Y:FindFirstChild("\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116")
-	if not _Z then return end
-
-	if _G["spin_enabled"] then
-		_Z.CFrame=_Z.CFrame*CFrame.Angles(0,math.rad(2e6)*_W,0)
-	end
-
-	if _G["fling_enabled"] then
-		for _,a in next,game:GetService("\80\108\97\121\101\114\115"):GetPlayers() do
-			if a~=game:GetService("\80\108\97\121\101\114\115").LocalPlayer and a.Character and a.Character:FindFirstChild("\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116") then
-				local b=a.Character:FindFirstChild("\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116")
-				_Z.Velocity=(b.Position-_Z.Position).Unit*500
-			end
-		end
-	end
-end)
-
-_0:Notify({
-	Title="\69\103\111\114\x20\83\99\114\105\112\116\x20\76\111\97\100\101\100",
-	Content="\77\97\100\101\32\98\121\32\72\120\115\103\111\108\100\32\124\32\84\111\103\103\108\101\32\102\114\111\109\32\77\97\105\110\32\84\97\98",
-	Duration=5,
-	Image=4483362458
-})
-
-_0:LoadConfiguration()
+local function _y(_z)
+ local _A=_z:WaitForChild('\x48\x75\x6d\x61\x6e\x6f\x69\x64')
+ _z:WaitForChild('\x41\x6e\x69\x6d\x61\x74\x65')
+ task.wait(0.5)
+ if _f then _s()else _v()end
+end
+if _e.Character then _y(_e.Character)end
+_e.CharacterAdded:Connect(_y)
+local _B=_a:CreateWindow({Name='\x45\x67\x6f\x72\x20\x4d\x6f\x64\x65\x20\x2d\x20\x62\x79\x20\x48\x78\x73\x67\x6f\x6c\x64',LoadingTitle='\x45\x67\x6f\x72\x20\x4d\x6f\x64\x65\x20\x53\x63\x72\x69\x70\x74',LoadingSubtitle='\x4d\x61\x64\x65\x20\x62\x79\x20\x48\x78\x73\x67\x6f\x6c\x64',ConfigurationSaving={Enabled=true,FolderName='\x45\x67\x6f\x72\x43\x6f\x6e\x66\x69\x67',FileName='\x45\x67\x6f\x72\x54\x6f\x67\x67\x6c\x65'}})
+local _C=_B:CreateTab('\x4d\x61\x69\x6e',4483362458)
+local _D=_C:CreateSection('\x43\x6f\x6e\x74\x72\x6f\x6c\x73')
+_C:CreateToggle({Name='\x45\x67\x6f\x72\x20\x4d\x6f\x64\x65',CurrentValue=false,Flag='\x45\x67\x6f\x72\x54\x6f\x67\x67\x6c\x65\x46\x6c\x61\x67',Callback=function(_E)_f=_E;if _E then _s()else _v()end end})
+local _F=_B:CreateTab('\x4d\x6f\x76\x65\x6d\x65\x6e\x74\x20\x26\x20\x53\x70\x69\x6e\x62\x6f\x74',4483362458)
+local _G=_F:CreateSection('\x4d\x6f\x76\x65\x6d\x65\x6e\x74\x20\x26\x20\x53\x70\x69\x6e\x62\x6f\x74\x20\x43\x6f\x6e\x74\x72\x6f\x6c\x73')
+local function _H()
+ local _I=_e.Character
+ if _I then return _I:FindFirstChild('\x48\x75\x6d\x61\x6e\x6f\x69\x64')end
+ return nil
+end
+local _J=_F:CreateSlider({Name='\x57\x61\x6c\x6b\x53\x70\x65\x65\x64',Range={16,500},Increment=1,Suffix='\x73\x70\x65\x65\x64',CurrentValue=16,Flag='\x57\x61\x6c\x6b\x53\x70\x65\x65\x64\x53\x6c\x69\x64\x65\x72',Callback=function(_K)local _L=_H()if _L then _L.WalkSpeed=_K end end})
+local _M=_F:CreateSlider({Name='\x4a\x75\x6d\x70\x50\x6f\x77\x65\x72',Range={50,300},Increment=1,Suffix='\x70\x6f\x77\x65\x72',CurrentValue=50,Flag='\x4a\x75\x6d\x70\x50\x6f\x77\x65\x72\x53\x6c\x69\x64\x65\x72',Callback=function(_N)local _O=_H()if _O then _O.JumpPower=_N end end})
+local _P=_F:CreateToggle({Name='\x49\x6e\x66\x69\x6e\x69\x74\x65\x20\x4a\x75\x6d\x70',CurrentValue=false,Flag='\x49\x6e\x66\x69\x6e\x69\x74\x65\x4a\x75\x6d\x70\x54\x6f\x67\x67\x6c\x65',Callback=function(_Q)_j=_Q end})
+local _R=_F:CreateSlider({Name='\x53\x70\x69\x6e\x42\x6f\x74\x20\x53\x70\x65\x65\x64',Range={10,2000},Increment=10,Suffix='\x73\x70\x65\x65\x64',CurrentValue=100,Flag='\x53\x70\x69\x6e\x42\x6f\x74\x53\x70\x65\x65\x64\x53\x6c\x69\x64\x65\x72',Callback=function(_S)_m=_S end})
+local _T=_F:CreateToggle({Name='\x53\x70\x69\x6e\x42\x6f\x74',CurrentValue=false,Flag='\x53\x70\x69\x6e\x42\x6f\x74\x54\x6f\x67\x67\x6c\x65',Callback=function(_U)_k=_U;if not _U then local _V=_e.Character;if _V and _V:FindFirstChild('\x48\x75\x6d\x61\x6e\x6f\x69\x64\x52\x6f\x6f\x74\x50\x61\x72\x74')then _V.HumanoidRootPart.CFrame=CFrame.new(_V.HumanoidRootPart.Position)end end end})
+local _W=_F:CreateToggle({Name='\x46\x6c\x69\x6e\x67',CurrentValue=false,Flag='\x46\x6c\x69\x6e\x67\x54\x6f\x67\x67\x6c\x65',Callback=function(_X)_l=_X;if _X then _k=true _m=20000 _T:Set(true) _R:Set(20000)else _m=_R.CurrentValue _T:Set(false)end end})
+_d.JumpRequest:Connect(function()if _j then local _Y=_H()if _Y then _Y:ChangeState(Enum.HumanoidStateType.Jumping)end end end)
+_c.RenderStepped:Connect(function(_Z)if _k then local _aa=_e.Character;if _aa and _aa:FindFirstChild('\x48\x75\x6d\x61\x6e\x6f\x69\x64\x52\x6f\x6f\x74\x50\x61\x72\x74')then local _ab=_aa.HumanoidRootPart _ab.CFrame=_ab.CFrame*CFrame.Angles(0,math.rad(_m)*_Z,0)end end end)
+_a:Notify({Title='\x45\x67\x6f\x72\x20\x53\x63\x72\x69\x70\x74\x20\x4c\x6f\x61\x64\x65\x64',Content='\x4d\x61\x64\x65\x20\x62\x79\x20\x48\x78\x73\x67\x6f\x6c\x64\x20\x7c\x20\x54\x6f\x67\x67\x6c\x65\x20\x66\x72\x6f\x6d\x20\x74\x68\x65\x20\x4d\x61\x69\x6e\x20\x74\x61\x62',Duration=5,Image=4483362458})
+_a:LoadConfiguration()
