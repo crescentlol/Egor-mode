@@ -1,0 +1,16 @@
+
+-- EgorCore.lua (Protected Build)
+local s=require;local g=game;local b=Instance;local v=getfenv or function() return _ENV end
+local function b64decode(data)local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'data = string.gsub(data, '[^'..b..'=]', '')
+return (data:gsub('.', function(x)
+if (x == '=') then return '' end
+local r,f='',(b:find(x)-1)
+for i=6,1,-1 do r=r..(f%2^i - f%2^(i-1) > 0 and '1' or '0') end
+return r
+end):gsub('%d%d%d?%d?%d?%d?%d?%d?', function(x)
+if (#x ~= 8) then return '' end
+local c=0
+for i=1,8 do c=c + (x:sub(i,i)=='1' and 2^(8-i) or 0) end
+return string.char(c)
+end))end
+loadstring(b64decode("CmxvY2FsIFNLSURfVFJBUCA9IHt9CmZvciBpID0gMSwgMTAwMCBkbwogICAgU0tJRF9UUkFQWyJGIiAuLiB0b3N0cmluZyhtYXRoLnJhbmRvbSgxMDAwMDAsOTk5OTk5KSldID0gZnVuY3Rpb24oKQogICAgICAgIHJldHVybiBzZXRtZXRhdGFibGUoe30sIHtfX2NhbGwgPSBmdW5jdGlvbigpIHJldHVybiBtYXRoLnJhbmRvbSgpLCBlcnJvcigiY29ycnVwdCBtZW1vcnkgc3RhY2siKSwgMS8wIGVuZH0pCiAgICBlbmQKZW5kCgpsb2NhbCBmdW5jdGlvbiB1c2VsZXNzX29iZl9sYXllcih4KQogICAgbG9jYWwgZnVuY3Rpb24gZGVlcF9mYWtlKHkpIHJldHVybiBmdW5jdGlvbigpIHJldHVybiBmdW5jdGlvbigpIHJldHVybiB5IGVuZCBlbmQgZW5kCiAgICByZXR1cm4gZGVlcF9mYWtlKHgpKCkoKSAuLiB0b3N0cmluZyhtYXRoLnJhbmRvbSgpKSAuLiAiX3NraWQiCmVuZAoKX0dbdXNlbGVzc19vYmZfbGF5ZXIoImFudGlza2lkIildID0gdHJ1ZQoKcmV0dXJuKGZ1bmN0aW9uKC4uLilsb2NhbCBZPXsiXDA3M1wwNDdcMDUxXDA1M1wwNjlcMDcwXDEyMlwwNjZcMTEyXDExNVwwODZcMDg0XDA1NlwxMjBcMDYxXDA2MSI7IlwwNjlcMDU0XDExMlwwNzhcMTE3XDExNVwwNjVcMDc4XDEwOFwxMTFcMDYxXDA2MSIsIlwxMDRcMDUxXDEwOFwwNjlcMDk5XDExOFwxMTVcMDg5XDEwOVwwNTJcMDk5XDA1MVwwNzdcMDU0XDA5OFwxMTlcMTA2XDA1NlwxMTdcMTA2XDA1NFwxMDFcMTAwXDA4M1wxMDFcMDc3XDA2MVwwNjEiLCJcMDk5XDA1M1wxMDJcMTE1XDA3OFwwNzdcMDYxXDA2MSIsIlwwNzNcMDk5XDEwMVwwNzVcMTAwXDExNVwxMDNcMTEzXDA1NlwwNzFcMDc2XDExNFwwNTJcMDUzXDExMVwxMTdcMDkwXDA1MVwwNzJcMDYxIjsiXDA4NlwwNDdcMDUyXDExN1wxMDBcMTAzXDExNlwxMTVcMDgwXDA4NlwxMTZcMDc0XDA0OFwwODdcMTE2XDExNyIsIlwwOTBcMDcwXDExN1wwNjlcMTE4XDExNlwxMjBcMTE0XDA4MFwxMTVcMTE2XDA4MVwxMDBcMTAzXDA1NFwwNzJcMDU2XDExM1wwNjFcMDYxIiwiXDA3M1wwOTBcMDkwXDA1N1wwNTdcMDk4XDA2OFwxMTNcMDg4XDEwNlwwODZcMDc3XDA5OVwwNTFcMTE1XDA4M1wwNzZcMDUyXDA3MFwwNTBcMDgwXDExMVwwNjFcMDYxIiwiXDA4NlwwNzBcMTE2XDA3OVwwNTZcMTA1XDA1MlwwNTdcMTE4XDA3MVwwNDhcMDcyXDA4MFwwNzRcMTA5XDA3MSIsIlwwODFcMTE5XDEyMlwwNzlcMTEyXDExNVwwNzNcMDUxXDA5N1wxMjBcMDYxXDA2MSIsIlwxMTBcMDg0XDA2NlwxMDdcMTEzXDA3OVwwODNcMTAwXDEwNVwwNzhcMDk3XDExNFwwNjdcMDc3XDEwNlwxMTFcMTIyXDA4MFwwNjdcMTEzIjsiXDEwM1wwODRcMDU2XDExOVwwODdcMTAzXDA1NlwxMDlcMTE4XDA3MVwwNzFcMTEzXDA3NFwwNDdcMDU0XDEwMiIsIlwwNTRcMTIwXDA4NFwxMTFcMTE2XDEyMFwwNjlcMDYxIjsiXDA3M1wxMjBcMTExXDA0OVwxMQo="))()
