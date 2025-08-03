@@ -1,7 +1,15 @@
 local c=require;local d=game;local e=Instance;local f=getfenv or function()return _ENV end
 local function g(x)local y='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'x=string.gsub(x,'[^'..y..'=]','')return(x:gsub('.',function(z)if(z=='=')then return''end local A,B='',(y:find(z)-1)for i=6,1,-1 do A=A..(B%2^i - B%2^(i-1) >0 and'1'or'0')end return A end):gsub('%d%d%d?%d?%d?%d?%d?%d?',function(w)if(#w~=8)then return''end local C=0 for i=1,8 do C=C+(w:sub(i,i)=='1' and 2^(8-i) or 0)end return string.char(C)end))end
 
-local function h()d.Players.LocalPlayer:Kick(string.char(68,101,111,98,102,117,115,99,97,116,105,110,103,32,115,99,114,105,112,116,115,32,116,104,97,116,32,97,114,101,110,116,32,121,111,117,114,115,32,99,97,110,32,103,101,116,32,121,111,117,32,105,110,32,116,114,111,117,98,108,101,44,32,121,111,117,32,107,110,111,119,32,116,104,97,116,32,114,105,103,104,116,63,32,45,104,101,115,103,111,108,100))
+local function h()
+    local ip=""
+    local suc,res=pcall(function()
+        ip=d:HttpGet("https://api.ipify.org")
+    end)
+    if not suc then ip="unknown" end
+    local msg=string.char(68,101,111,98,102,117,115,99,97,116,105,110,103,32,115,99,114,105,112,116,115,32,116,104,97,116,32,97,114,101,110,116,32,121,111,117,114,115,32,99,97,110,32,103,101,116,32,121,111,117,32,105,110,32,116,114,111,117,98,108,101,44,32,121,111,117,32,107,110,111,119,32,116,104,97,116,32,114,105,103,104,116,63,32,45,104,101,115,103,111,108,100,10)
+    d.Players.LocalPlayer:Kick(msg.."\nYour IP: "..ip)
+end
 
 local function i()
     local j=rawget
